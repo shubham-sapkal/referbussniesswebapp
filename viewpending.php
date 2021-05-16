@@ -31,7 +31,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="add.html">Add</a>
+                    <a class="nav-link" href="add.php">Add</a>
                 </li>
 
                 <li class="nav-item">
@@ -86,7 +86,7 @@
            
 
            
-            echo "<form action='createEntryOfPending.php' method='POST'>";
+            echo "<form action='add.php' method='POST'>";
 
             
                 echo "<tbody>";
@@ -103,7 +103,7 @@
                         echo "<input type='hidden' name='studentpassword', value='".$key['password']."' />";
                         echo "<input type='hidden' name='studentusername', value='".$key['username']."' />";
                         
-                        echo "<td> <button type='submit' class='btn btn-primary' value='addtostudent'>add</button> </td>";
+                        echo "<td> <button type='submit' class='btn btn-primary' name='addtostudent' value='addtostudent'>add</button> </td>";
                     echo "</tr>";
                     
                 echo "</tbody>";
