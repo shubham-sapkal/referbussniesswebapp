@@ -9,12 +9,12 @@
         $gender = $_POST["gender"];
         // $gender = "male";
         $email = $_POST["email"];
-        $username = $_POST["username"]
+        $username = $_POST["username"];
         $password = $_POST["password"];
         $course = $_POST["course"];
         $feesPayingNow = $_POST["feesPayingNow"];
 
-        echo "1.".$fname."\n2.".$lname."\n3.".$gender."\n4.".$email."\n5.".$password."\n6.".$course."\n7.".$feesPayingNow;
+        //echo "1.".$fname."\n2.".$lname."\n3.".$gender."\n4.".$email."\n5.".$password."\n6.".$course."\n7.".$feesPayingNow;
 
         $collection = "student/";
 
@@ -55,6 +55,36 @@
         }catch(exception $e){
             echo "Error! something went wrong ...";
         }
+
+
+        $collection = "pendinglist/";
+
+        $data = $database->getReference($collection)->getvalue();
+
+        if($data !== null){
+
+            foreach($data as $row => $key){
+            
+
+                if($key["email"] == $email){
+                    
+                    $collectionRef = $collection.$row;
+
+                    // echo $collectionRef;
+
+                    $database->getReference($collectionRef)->remove();
+
+                    echo "<script type='text/javascript'>alert('submitted successfully!')</script>";
+                    header("Location:Home.html");
+                    
+                }
+
+
+            }
+
+        }
+
+
        
     }
 
