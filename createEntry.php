@@ -6,9 +6,10 @@
 
         $fname = $_POST["fname"];
         $lname = $_POST["lname"];
-        //$gender = $_POST["gender"];
-        $gender = "male";
+        $gender = $_POST["gender"];
+        // $gender = "male";
         $email = $_POST["email"];
+        $username = $_POST["username"]
         $password = $_POST["password"];
         $course = $_POST["course"];
         $feesPayingNow = $_POST["feesPayingNow"];
@@ -41,6 +42,7 @@
             'lname' => $lname,
             'gender' => $gender,
             'email' => $email,
+            'username' => $username,
             'password' => $password,
             'course' => $course,
             'totalfees' => $totalFees,
