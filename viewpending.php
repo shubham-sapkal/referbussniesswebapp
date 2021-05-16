@@ -56,7 +56,7 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Refered By</th>
+                    <th>Email</th>
                     <th></th>
                 </tr>
             </thead>
@@ -64,23 +64,62 @@
             
             include("includes/dbconfig.php");
 
-            $collection = ""
+            $collection = "pendinglist/";
+
+            $data = $database->getReference($collection)->getvalue();
+
+            //var_dump($data);
             
-            ?>
-            <tbody>
-                <tr>
-                    <td scope="row">dummy</td>
-                    <td>dummer</td>
-                    <td> <button type="submit" class="btn btn-primary">add</button> </td>
-                </tr>
-                <tr>
-                    <td scope="row"></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-            <?php 
+            foreach($data as $maindata => $key){
+
+                // var_dump($key["email"]);
+
+                // foreach($maindata as $key => $value ) {
+
+                //     // var_dump($key);
+                //     // echo "</br>";
+                //     // var_dump($value);
+
+                   
+
+               
+           
+
+           
+            echo "<form action='createEntryOfPending.php' method='POST'>";
+
             
+                echo "<tbody>";
+                   echo " <tr>";
+                        echo "<td scope='row'><labal for='studentname'>".$key['name']."</label></td>";
+                        echo "<td><labal for='studentemail'>".$key['email']."</label></td>";
+
+
+
+
+
+                        echo "<input type='hidden' name='studentname' value='".$key['name']."' />";
+                        echo "<input type='hidden' name='studentemail' value='".$key['email']."' />";
+                        echo "<input type='hidden' name='studentpassword', value='".$key['password']."' />";
+                        echo "<input type='hidden' name='studentusername', value='".$key['username']."' />";
+                        
+                        echo "<td> <button type='submit' class='btn btn-primary' value='addtostudent'>add</button> </td>";
+                    echo "</tr>";
+                    
+                echo "</tbody>";
+
+               
+
+
+            echo "</form>";
+             
+            
+        
+        
+                
+            
+            }    // Foreach  close 
+
 
             ?>
 
