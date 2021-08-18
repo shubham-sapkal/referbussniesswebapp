@@ -35,7 +35,7 @@ The courses and the price of that courses, the one should registered for is give
 
 To run project, first run project from android.
 
-For Admin side website vist following repository : https://github.com/shubham-sapkal/ReferBusinessApp 
+For android base application vist following repository : https://github.com/shubham-sapkal/ReferBusinessApp 
 
 For Admin side deployment, run project through localhost and dynamic hosting.
 
